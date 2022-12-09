@@ -1,0 +1,66 @@
+#tablediv {
+    background-color: #fff;
+}
+#tabletop > input, #tabletop button {
+    border: 1px solid #C3C5C6;
+    outline: none;
+    background-color: #fff;
+    color: black;
+    padding: .3rem 1rem;
+    border-radius: 0.4rem;
+}
+#table-wrapper {
+    border: 1px solid #C3C5C6;
+    border-radius: 0.4rem;
+}
+thead tr, tbody tr {
+    border-bottom: 1px solid #C3C5C6;
+}
+td a {
+    text-decoration: none;
+}
+th, th button {
+    color: #878C8C;
+    background-color: #fff;
+    font-weight: normal;
+    border: none;
+    outline: none;
+}
+thead tr th, tbody tr td {
+    padding: 0.5rem 0px;
+}
+tr:hover {
+    background-color: #F5F5F9;
+}
+label {
+    color: #878C8C;
+}
+.Dine.In {
+    color: #4361EE;
+}
+.Delivery {
+    color: #E63946;
+}
+.Take.Away {
+    color: #F7B801;
+}
+td > span, #order-status label, #payment label {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.2rem;
+}
+.New.Order {
+    color: #EB5E28;
+    background-color: #FDEFEA;
+}
+.Order.Updated {
+    color: #6F2DBD;
+    background-color: #E8E2F0;
+}
+.Paid, .Paid label {
+    color: #2FBF71;
+    background-color: #EAF9F1;
+}
+.Un-Paid, .Un-Paid label {
+    color: #D90429;
+    background-color: #F2DEE1;
+}
