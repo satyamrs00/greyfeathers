@@ -9,6 +9,17 @@
     padding: .3rem 1rem;
     border-radius: 0.4rem;
 }
+#tabletop > input {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: none;
+    width: 60%;
+}
+#mg {
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+    border-right: none!important;
+}
 #table-wrapper {
     border: 1px solid #C3C5C6;
     border-radius: 0.4rem;
@@ -63,4 +74,13 @@ td > span, #order-status label, #payment label {
 .Un-Paid, .Un-Paid label {
     color: #D90429;
     background-color: #F2DEE1;
+}
+#filters-toggle::after {
+    display: none;
+}
+#filter-date::after {
+    display: none;
+}
+#tabletop svg{
+    color: #878C8C;
 }

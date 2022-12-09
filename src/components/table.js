@@ -3,6 +3,10 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '@popperjs/core';
 import 'bootstrap';
 import './table.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faSliders, faArrowUpRightFromSquare, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+
 
 export default class Table extends Component {
     constructor(props) {
@@ -10,6 +14,7 @@ export default class Table extends Component {
         this.handleOrderStatusChange = this.handleOrderStatusChange.bind(this);
         this.handleOrderTypeChange = this.handleOrderTypeChange.bind(this);
         this.handlePaymentChange = this.handlePaymentChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     handleOrderStatusChange = (event) => {
@@ -20,6 +25,9 @@ export default class Table extends Component {
     }
     handlePaymentChange = (event) => {
         this.props.filterPayment(event.target.value);
+    }
+    handleDateChange = (event) => {
+        this.props.filterDate(event.target.value);
     }
 
     render() {
@@ -41,14 +49,36 @@ export default class Table extends Component {
             }
             return true;
         })
+        orders = orders.filter((order) => {
+            if (this.props.filters.date.length > 0) {
+                const date = new Date(order.datetime);
+                const datestr = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+                const filter = new Date();
+                switch (this.props.filters.date) {
+                    case 'Today':
+                        break;
+                    case 'Yesterday':
+                        filter.setDate(filter.getDate() - 1);
+                        break;
+                    case 'All Time':
+                        return true;
+                    default:
+                        return true;
+                }
+                return datestr === `${filter.getFullYear()}-${filter.getMonth() + 1}-${filter.getDate()}`;
+            }
+            return true;
+        })
         return (
             <div id="tablediv" className="my-3 p-3">
                 <h4 className="fw-bold">Order Details</h4>
-                <div id="tabletop" className="d-flex justify-content-between my-3">
-                    <input type="text" className="w-75" />
-                    <div className="dropdown">
-                        <button className=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filters
+                <div id="tabletop" className="d-flex justify-content-evenly my-3">
+                    <button className="flex-shrink-1 pe-0" id="mg"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                    <input type="text" className="me-auto" placeholder="Search" />
+                    <div className="dropdown mx-3 ms-5">
+                        <button className=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="filters-toggle">
+                            <FontAwesomeIcon icon={faSliders} />
+                            &nbsp;&nbsp;Filters
                         </button>
                         <div className="dropdown-menu p-3">
                             <div>
@@ -90,7 +120,20 @@ export default class Table extends Component {
                             </div>
                         </div>
                     </div>
-                    <button className="">Today</button>
+                    <div className="dropdown mx-3 flex-grow-1">
+                        <button className="dropdown-toggle w-100 text-start d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false" id="filter-date">
+                            <FontAwesomeIcon icon={faCalendarDays} />
+                            &nbsp;&nbsp;{this.props.filters.date}
+                            <FontAwesomeIcon className="ms-auto" icon={faChevronDown}/>
+                        </button>
+                        <div className="dropdown-menu p-3">
+                            <div>
+                                <button className="dropdown-item" value='Today' onClick={this.handleDateChange}>Today</button>
+                                <button className="dropdown-item" value='Yesterday' onClick={this.handleDateChange}>Yesterday</button>
+                                <button className="dropdown-item" value='All Time' onClick={this.handleDateChange}>All Time</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="p-2" id="table-wrapper">
                     <table className="w-100">
@@ -172,7 +215,7 @@ export default class Table extends Component {
                                         <td><span className={order.order_status}>{order.order_status}</span></td>
                                         <td><span className={order.payment}>{order.payment}</span></td>
                                         <td>{d.toLocaleString('en-IN', date_options)}<br />{d.toLocaleString('en-IN', time_options).toUpperCase()}</td>
-                                        <td className="text-center"><a href="#">V</a></td>
+                                        <td className="text-center"><a href="#"><FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a></td>
                                     </tr>
                                 )
                             })}
