@@ -1,58 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Component } from 'react';
 import './App.css';
+import { filterOrderStatus, filterOrderType, filterPayment } from './app/actions';
+import { connect } from 'react-redux';
+import Table from './components/table';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render (){
+    return (
+      <div className="App">
+        <div>
+          <div>
+            <Table filters={this.props.filters} orders={this.props.orders}
+              filterOrderStatus={this.props.filterOrderStatus} filterOrderType={this.props.filterOrderType}
+              filterPayment={this.props.filterPayment} />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+const matchStateToProps = (state) => {
+  return {
+    filters: state.filters,
+    orders: state.orders,
+  }
+}
+
+const matchDispatchToProps = (dispatch) => {
+  return {
+    filterOrderStatus: (status) => dispatch(filterOrderStatus(status)),
+    filterOrderType: (type) => dispatch(filterOrderType(type)),
+    filterPayment: (payment) => dispatch(filterPayment(payment)),
+  }
+}
+
+export default connect(matchStateToProps, matchDispatchToProps)(App);

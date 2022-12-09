@@ -1,0 +1,74 @@
+[
+    {
+        "id": "HIMYM12345",
+        "table_no": 1,
+        "customer_name": "John Doe",
+        "order_status": "New Order",
+        "order_type": "Dine In",
+        "payment": "Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12346",
+        "table_no": 2,
+        "customer_name": "Meghan Markle",
+        "order_status": "Order Updated",
+        "order_type": "Dine In",
+        "payment": "Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12347",
+        "table_no": 3,
+        "customer_name": "Catherine Middleton",
+        "order_status": "Order Updated",
+        "order_type": "Delivery",
+        "payment": "Un-Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12348",
+        "table_no": 4,
+        "customer_name": "Sarah Jessica Parker",
+        "order_status": "New Order",
+        "order_type": "Take Away",
+        "payment": "Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12349",
+        "table_no": 5,
+        "customer_name": "Peter Parker",
+        "order_status": "Order Updated",
+        "order_type": "Dine In",
+        "payment": "Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12350",
+        "table_no": 6,
+        "customer_name": "Kelly Clarkson",
+        "order_status": "New Order",
+        "order_type": "Dine In",
+        "payment": "Un-Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12351",
+        "table_no": 7,
+        "customer_name": "Matt Damon",
+        "order_status": "Order Updated",
+        "order_type": "Take Away",
+        "payment": "Un-Paid",
+        "datetime": "2019-01-01 12:00:00" 
+    },
+    {
+        "id": "HIMYM12352",
+        "table_no": 8,
+        "customer_name": "Brad Pitt",
+        "order_status": "New Order",
+        "order_type": "Delivery",
+        "payment": "Paid",
+        "datetime": "2019-01-01 12:00:00"
+    }
+]
