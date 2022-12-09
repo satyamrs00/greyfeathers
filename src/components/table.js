@@ -84,37 +84,37 @@ export default class Table extends Component {
                             <div>
                                 <div>Order Status</div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="New Order" id="main-new-order" onChange={this.handleOrderStatusChange} />
+                                    <input className="form-check-input" type="checkbox" value="New Order" id="main-new-order" onChange={this.handleOrderStatusChange} checked={this.props.filters.order_status.includes("New Order")} />
                                     <label className="form-check-label ps-1" htmlFor="main-new-order">New Order</label>
                                 </div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="Order Updated" id="main-order-updated" onChange={this.handleOrderStatusChange} />
+                                    <input className="form-check-input" type="checkbox" value="Order Updated" id="main-order-updated" onChange={this.handleOrderStatusChange} checked={this.props.filters.order_status.includes("Order Updated")} />
                                     <label className="form-check-label ps-1" htmlFor="main-order-updated">Order Updated</label>
                                 </div>
                             </div>
                             <div>
                                 <div>Payment</div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="Paid" id="main-paid" onChange={this.handlePaymentChange} />
+                                    <input className="form-check-input" type="checkbox" value="Paid" id="main-paid" onChange={this.handlePaymentChange} checked={this.props.filters.payment.includes('Paid')} />
                                     <label className="form-check-label ms-1" htmlFor="main-paid">Paid</label>
                                 </div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="Un-Paid" id="main-un-paid" onChange={this.handlePaymentChange} />
+                                    <input className="form-check-input" type="checkbox" value="Un-Paid" id="main-un-paid" onChange={this.handlePaymentChange} checked={this.props.filters.payment.includes('Un-Paid')} />
                                     <label className="form-check-label ms-1" htmlFor="main-un-paid">Un-Paid</label>
                                 </div>
                             </div>
                             <div>
                                 <div>Order Type</div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="Dine In" id="main-dine-in" onChange={this.handleOrderTypeChange} />
+                                    <input className="form-check-input" type="checkbox" value="Dine In" id="main-dine-in" onChange={this.handleOrderTypeChange} checked={this.props.filters.order_type.includes('Dine In')} />
                                     <label className="form-check-label ms-1" htmlFor="main-dine-in">Dine In</label>
                                 </div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="Take Away" id="main-take-away" onChange={this.handleOrderTypeChange} />
+                                    <input className="form-check-input" type="checkbox" value="Take Away" id="main-take-away" onChange={this.handleOrderTypeChange} checked={this.props.filters.order_type.includes('Take Away')} />
                                     <label className="form-check-label ms-1" htmlFor="main-take-away">Take Away</label>
                                 </div>
                                 <div>
-                                    <input className="form-check-input" type="checkbox" value="Delivery" id="main-delivery" onChange={this.handleOrderTypeChange} />
+                                    <input className="form-check-input" type="checkbox" value="Delivery" id="main-delivery" onChange={this.handleOrderTypeChange} checked={this.props.filters.order_type.includes('Delivery')} />
                                     <label className="form-check-label ms-1" htmlFor="main-delivery">Delivery</label>
                                 </div>
                             </div>
@@ -149,15 +149,15 @@ export default class Table extends Component {
                                         </button>
                                         <div className="dropdown-menu p-3">
                                             <div>
-                                                <input className="form-check-input" type="checkbox" value="Dine In" id="order-type-dine-in" onChange={this.handleOrderTypeChange} />
+                                                <input className="form-check-input" type="checkbox" value="Dine In" id="order-type-dine-in" onChange={this.handleOrderTypeChange} checked={this.props.filters.order_type.includes('Dine In')} />
                                                 <label className="form-check-label ms-1 Dine In" htmlFor="order-type-dine-in">Dine In</label>
                                             </div>
                                             <div>
-                                                <input className="form-check-input" type="checkbox" value="Take Away" id="order-type-take-away" onChange={this.handleOrderTypeChange} />
+                                                <input className="form-check-input" type="checkbox" value="Take Away" id="order-type-take-away" onChange={this.handleOrderTypeChange} checked={this.props.filters.order_type.includes('Take Away')} />
                                                 <label className="form-check-label ms-1 Take Away" htmlFor="order-type-take-away">Take Away</label>
                                             </div>
                                             <div>
-                                                <input className="form-check-input" type="checkbox" value="Delivery" id="order-type-delivery" onChange={this.handleOrderTypeChange} />
+                                                <input className="form-check-input" type="checkbox" value="Delivery" id="order-type-delivery" onChange={this.handleOrderTypeChange} checked={this.props.filters.order_type.includes('Delivery')} />
                                                 <label className="form-check-label ms-1 Delivery" htmlFor="order-type-delivery">Delivery</label>
                                             </div>
                                         </div>
@@ -170,11 +170,11 @@ export default class Table extends Component {
                                         </button>
                                         <div className="dropdown-menu p-3">
                                             <div className="d-flex align-items-center">
-                                                <input className="form-check-input m-0" type="checkbox" value="New Order" id="order-status-new-order" onChange={this.handleOrderStatusChange} />
+                                                <input className="form-check-input m-0" type="checkbox" value="New Order" id="order-status-new-order" onChange={this.handleOrderStatusChange} checked={this.props.filters.order_status.includes("New Order")} />
                                                 <label className="form-check-label ms-1 mb-1 New Order" htmlFor="order-status-new-order">New Order</label>
                                             </div>
                                             <div className="d-flex align-items-center">
-                                                <input className="form-check-input m-0" type="checkbox" value="Order Updated" id="order-status-order-updated" onChange={this.handleOrderStatusChange} />
+                                                <input className="form-check-input m-0" type="checkbox" value="Order Updated" id="order-status-order-updated" onChange={this.handleOrderStatusChange} checked={this.props.filters.order_status.includes("Order Updated")} />
                                                 <label className="form-check-label ms-1 Order Updated" htmlFor="order-status-order-updated">Order Updated</label>
                                             </div>
                                         </div>
@@ -187,11 +187,11 @@ export default class Table extends Component {
                                         </button>
                                         <div className="dropdown-menu p-3">
                                             <div className="d-flex align-items-center">
-                                                <input className="form-check-input m-0" type="checkbox" value="Paid" id="payment-paid" onChange={this.handlePaymentChange} />
+                                                <input className="form-check-input m-0" type="checkbox" value="Paid" id="payment-paid" onChange={this.handlePaymentChange} checked={this.props.filters.payment.includes('Paid')} />
                                                 <label className="form-check-label ms-1 mb-1 Paid" htmlFor="payment-paid">Paid</label>
                                             </div>
                                             <div className="d-flex align-items-center">
-                                                <input className="form-check-input m-0" type="checkbox" value="Un-Paid" id="payment-un-paid" onChange={this.handlePaymentChange} />
+                                                <input className="form-check-input m-0" type="checkbox" value="Un-Paid" id="payment-un-paid" onChange={this.handlePaymentChange} checked={this.props.filters.payment.includes('Un-Paid')} />
                                                 <label className="form-check-label ms-1 Un-Paid" htmlFor="payment-un-paid">Un-Paid</label>
                                             </div>
                                         </div>
