@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { FILTER_ORDER_STATUS, FILTER_ORDER_TYPE, FILTER_PAYMENT, FILTER_DATE } from './actions';
+import { FILTER_ORDER_STATUS, FILTER_ORDER_TYPE, FILTER_PAYMENT, FILTER_DATE, FILTER_SEARCH } from './actions';
 import orders from '../data/orders.json';
 
 const initialFilters = {
@@ -7,6 +7,7 @@ const initialFilters = {
   order_type: [],
   payment: [],
   date: "All Time",
+  search: "",
 }
 const filtersReducer = (state = initialFilters, action) => {
   switch (action.type){
@@ -18,6 +19,8 @@ const filtersReducer = (state = initialFilters, action) => {
       return Object.assign({}, state, {payment: state.payment.includes(action.payment) ? state.payment.filter((item) => item !== action.payment) : state.payment.concat(action.payment)});
     case FILTER_DATE:
       return Object.assign({}, state, {date: action.date});
+    case FILTER_SEARCH:
+      return Object.assign({}, state, {search: action.search});
     default:
       return state;
   }

@@ -2,6 +2,7 @@ export const FILTER_ORDER_STATUS = 'FILTER_ORDER_STATUS';
 export const FILTER_ORDER_TYPE = 'FILTER_ORDER_TYPE';
 export const FILTER_PAYMENT = 'FILTER_PAYMENT';
 export const FILTER_DATE = 'FILTER_DATE';
+export const FILTER_SEARCH = 'FILTER_SEARCH';
 
 export const filterOrderStatus = (order_status) => {
     return {
@@ -27,5 +28,11 @@ export const filterDate = (date) => {
     return {
         type: FILTER_DATE,
         date
+    };
+}
+export const filterSearch = (search) => {
+    return {
+        type: FILTER_SEARCH,
+        search
     };
 }

@@ -15,8 +15,12 @@ export default class Table extends Component {
         this.handleOrderTypeChange = this.handleOrderTypeChange.bind(this);
         this.handlePaymentChange = this.handlePaymentChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.handleSearchChange = this.handleSearchChange.bind(this);
     }
 
+    handleSearchChange = (event) => {
+        this.props.filterSearch(event.target.value);
+    }
     handleOrderStatusChange = (event) => {
         this.props.filterOrderStatus(event.target.value);
     }
@@ -69,12 +73,19 @@ export default class Table extends Component {
             }
             return true;
         })
+        orders = orders.filter((order) => {
+            if (this.props.filters.search.length > 0) {
+                return order.id.toLowerCase().includes(this.props.filters.search.toLowerCase()) 
+                || order.customer_name.toLowerCase().includes(this.props.filters.search.toLowerCase());
+            }
+            return true;
+        })
         return (
             <div id="tablediv" className="my-3 p-3">
                 <h4 className="fw-bold">Order Details</h4>
                 <div id="tabletop" className="d-flex justify-content-evenly my-3">
                     <button className="flex-shrink-1 pe-0" id="mg"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-                    <input type="text" className="me-auto" placeholder="Search" />
+                    <input type="text" className="me-auto" placeholder="Search" onChange={this.handleSearchChange} />
                     <div className="dropdown mx-3 ms-5">
                         <button className=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="filters-toggle">
                             <FontAwesomeIcon icon={faSliders} />

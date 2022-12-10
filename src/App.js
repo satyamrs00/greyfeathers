@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import './App.css';
-import { filterOrderStatus, filterOrderType, filterPayment, filterDate } from './app/actions';
+import { filterOrderStatus, filterOrderType, filterPayment, filterDate, filterSearch } from './app/actions';
 import { connect } from 'react-redux';
 import Table from './components/table';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -32,7 +32,8 @@ class App extends Component {
             </div>
             <Table filters={this.props.filters} orders={this.props.orders}
               filterOrderStatus={this.props.filterOrderStatus} filterOrderType={this.props.filterOrderType}
-              filterPayment={this.props.filterPayment} filterDate={this.props.filterDate} />
+              filterPayment={this.props.filterPayment} filterDate={this.props.filterDate} 
+              filterSearch={this.props.filterSearch} />
           </div>
         </div>
       </div>
@@ -53,6 +54,7 @@ const matchDispatchToProps = (dispatch) => {
     filterOrderType: (type) => dispatch(filterOrderType(type)),
     filterPayment: (payment) => dispatch(filterPayment(payment)),
     filterDate: (date) => dispatch(filterDate(date)),
+    filterSearch: (search) => dispatch(filterSearch(search)),
   }
 }
 
