@@ -9,7 +9,7 @@
 #sidebar > div.red {
   background-color: #E63946;
   color: #fff;
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 0.3rem;
 }
 #topbar > input, #topbar > button {

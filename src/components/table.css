@@ -83,3 +83,6 @@ td > span, #order-status label, #payment label {
 #tabletop svg{
     color: #878C8C;
 }
+.dropdown-menu {
+    min-width: 12rem
+}

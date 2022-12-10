@@ -75,8 +75,8 @@ export default class Table extends Component {
         })
         orders = orders.filter((order) => {
             if (this.props.filters.search.length > 0) {
-                return order.id.toLowerCase().includes(this.props.filters.search.toLowerCase()) 
-                || order.customer_name.toLowerCase().includes(this.props.filters.search.toLowerCase());
+                return order.id.toLowerCase().includes(this.props.filters.search.toLowerCase().trim()) 
+                || order.customer_name.toLowerCase().includes(this.props.filters.search.toLowerCase().trim());
             }
             return true;
         })
